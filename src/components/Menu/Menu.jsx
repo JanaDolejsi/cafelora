@@ -11,7 +11,7 @@ export const Menu = () => {
                 Vyberte si z našeho interaktivního menu a nemusíte čekat na obsluhu
               </p>
               <div className="drinks-list">
-                <Drink name="Romano" />
+                <Drink name="Romano" image=""/>
     
               </div>
     
