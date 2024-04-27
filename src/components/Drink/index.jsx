@@ -2,9 +2,6 @@ import { Layer } from "../Layer/Layer";
 import "./style.css";
 
 export const Drink = ({ id, name, ordered, image, layers }) => {
-  const layerElm = layers.map((layer) => (
-    <Layer key={layer.label} color={layer.color} label={layer.label} />
-  ));
   return (
     <div className="drink">
       <div className="drink__product">
@@ -13,14 +10,16 @@ export const Drink = ({ id, name, ordered, image, layers }) => {
         </div>
         <div className="drink__info">
           <h3>{name}</h3>
-          <div className="layer">{layerElm}</div>
+          {layers.map((layer) => (
+            <Layer key={layer.label} color={layer.color} label={layer.label} />
+        ))}
         </div>
       </div>
       <form data-id={id} className="drink__controls">
         <input type="hidden" className="order-id" value="0" />
         <button
           className={
-            ordered ? ".ordered-btn .ordered-btn--ordered" : ".ordered-btn"
+            ordered ? "order-btn order-btn--ordered" : "order-btn"
           }
         >
           {ordered ? "Zrušit" : "Objednat"}

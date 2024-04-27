@@ -1,8 +1,9 @@
 import './Header.css'
 
-export const Header = () => {
+export const Header = ({showMenu = true}) => {
     return (
-        <header id="header">
+        showMenu ? (
+          <header id="header">
             <div className="header__content container">
               <div className="site-logo"></div>
       
@@ -18,6 +19,19 @@ export const Header = () => {
       
             </div>
           </header>
+        ) : (
+          <header>
+        <div className="header__content container">
+          <div className="site-logo"></div>
+
+          <nav className="inline-nav">
+            <a href="/">Hlavní stránka</a>
+          </nav>
+
+        </div>
+      </header>
+        )
     );
   };
 
+  
